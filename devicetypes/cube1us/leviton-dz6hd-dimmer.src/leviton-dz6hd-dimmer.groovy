@@ -12,15 +12,18 @@
  *
  */
  
-//	SmartThings Device handler for Leviton ZWave Smart Dimmer D6ZHD
-//  Based in part on the SmartThings Dimmer sample code.
-//	Based in part on code on github posted by "johnconstantelo", 3/27/2017
-
-//	Copyright 2017 Jay R. Jaeger
-
-//	NOTE:  on() and off() ignore the fade-on time (but for the operation only - the default stays set)
-//  I would love to "fix" that, but did not find a way to do it.
-
+/*	SmartThings Device handler for Leviton ZWave Smart Dimmer D6ZHD
+ *  Based in part on the SmartThings Dimmer sample code.
+ *	Based in part on code on github posted by "johnconstantelo", 3/27/2017
+ *
+ *	Copyright 2017 Jay R. Jaeger
+ *
+ *	NOTE:  on() and off() ignore the fade-on time (but for the operation only - the default stays set)
+ *  I would love to "fix" that, but did not find a way to do it.
+ *
+ */
+ 
+ 
 //	Define the device to SmartThings
 
 metadata {
@@ -153,7 +156,7 @@ def getMyName() {
 }
 
 def getVersion() {
-	return "V0.93"
+	return "V0.94"
 }
 
 
