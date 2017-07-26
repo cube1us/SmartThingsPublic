@@ -362,7 +362,7 @@ def setLevel(value, duration) {
     //	For the DZ6HD, Duration:  0 = instant, 0-127 is in seconds, 128-253 is 128 + minutes
     //	Incoming duration is, apparently, in seconds.
     
-	def dimmingDuration = duration < 128 ? duration : 127 + duration/60
+	def dimmingDuration = duration < 128 ? duration : 127 + Math.round(duration/60)
 	def getStatusDelay = duration < 128 ? (duration*1000)+2000 : (Math.round(duration / 60)*60*1000)+2000
     
 	delayBetween ([zwave.switchMultilevelV2.switchMultilevelSet(value: level, dimmingDuration: dimmingDuration).format(),
@@ -375,7 +375,7 @@ def setLevel(value, duration) {
 
 void indicatorWhenOn() {
 	sendEvent(name: "indicatorStatus", value: "when on", displayed: false)
-	sendHubCommand(new physicalgraph.device.HubAction(zwave.configurationV1.configurationSet(\
+	sendHubCommand(new physicalgraph.device.HubAction(zwave.configurationV1.configurationSet(
     	configurationValue: [getLocatorStatusValue("when on")], parameterNumber: 7, size: 1).format()))
 }
 
